@@ -17,13 +17,13 @@
      }
      ```
   2) Function ที่มี Parameters
-    ```rust
-     fn function_name(parameter: Type) {
-       // function body
-     }
-    ```
+  ```rust
+      fn function_name(parameter: Type) {
+         // function body
+      }
+  ```
     ((function parameter ของ Rust เป็นส่วนหนึ่งของ static type system = รู้ตั้งแต่ compile))
-  3) Function ที่มี Return Value
+  4) Function ที่มี Return Value
      ```rust
      fn function_name() -> ReturnType {
         value
