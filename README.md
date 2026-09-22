@@ -11,19 +11,24 @@
 `[Topic นี้เกี่ยวข้องกับ syntax อย่างไร]`
 ภาษา Rust ประกาศฟังก์ชันด้วย keyword fn ตามด้วยชื่อฟังก์ชัน วงเล็บสำหรับ parameters และ { } สำหรับส่วน body ของฟังก์ชัน
   1) Function พื้นฐาน
+     ```rust
      fn function_name() {
         // คำสั่งที่ต้องการให้ function ทำงาน
      }
+     ```
   2) Function ที่มี Parameters
+    ```rust
      fn function_name(parameter: Type) {
        // function body
      }
+    ```
     ((**function parameter ของ Rust เป็นส่วนหนึ่งของ static type system = รู้ตั้งแต่ compile**))
   3) Function ที่มี Return Value
+     ```rust
      fn function_name() -> ReturnType {
         value
      }
-
+     ```
 ### 9.2 Semantics
 
 `[คำสั่ง/construct เหล่านี้มีความหมายหรือพฤติกรรมอย่างไร]`
