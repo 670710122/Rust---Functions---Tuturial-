@@ -22,7 +22,7 @@
        // function body
      }
     ```
-    ((**function parameter ของ Rust เป็นส่วนหนึ่งของ static type system = รู้ตั้งแต่ compile**))
+    ((function parameter ของ Rust เป็นส่วนหนึ่งของ static type system = รู้ตั้งแต่ compile))
   3) Function ที่มี Return Value
      ```rust
      fn function_name() -> ReturnType {
