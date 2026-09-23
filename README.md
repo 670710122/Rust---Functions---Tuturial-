@@ -75,9 +75,9 @@ Rust เป็นภาษาแบบ **Multi-paradigm** ซึ่งรอง�
 
 `[Rust ใช้แนวคิดนี้เพื่อเพิ่ม safety, reliability หรือ performance อย่างไร]`
 Rust ออกแบบ Functions ให้ทำงานร่วมกับ **Type System และ Ownership & Borrowing** เพื่อเพิ่มความปลอดภัย ความน่าเชื่อถือ และประสิทธิภาพของโปรแกรม
-####Safety
+#### Safety
 Rust ตรวจสอบชนิดข้อมูลของ **parameters และ return values** ตั้งแต่ Compile Time รวมถึงตรวจสอบกฎ Ownership และ Borrowing เมื่อมีการส่งข้อมูลระหว่าง Functions จึงช่วยป้องกันข้อผิดพลาดด้านชนิดข้อมูลและปัญหาการจัดการหน่วยความจำ
-####Reliability
+#### Reliability
 กฎที่ชัดเจนเกี่ยวกับ **Scope, Type และ Ownership** ช่วยให้พฤติกรรมของ Function คาดเดาได้มากขึ้น และตรวจพบข้อผิดพลาดหลายประเภทก่อนโปรแกรมทำงานจริง
 **Performance**
 Rust สามารถส่งข้อมูลเข้า Function ได้ทั้งแบบ **Move, Copy และ Borrow** โดยการ Borrow ผ่าน reference ช่วยให้ Function เข้าถึงข้อมูลได้โดยไม่จำเป็นต้องคัดลอกข้อมูลทั้งหมด และ Rust สามารถจัดการหน่วยความจำได้โดยไม่ต้องพึ่ง Garbage Collector
