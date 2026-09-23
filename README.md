@@ -32,6 +32,7 @@
 ### 9.2 Semantics
 
 `[คำสั่ง/construct เหล่านี้มีความหมายหรือพฤติกรรมอย่างไร]`
+`เมื่อมีการเรียก Function ค่า arguments จะถูกผูกกับ parameters จากนั้นคำสั่งและ expressions ภายใน function body จะถูกประมวลผล และค่าของ expression สุดท้ายที่ไม่มี semicolon (;) สามารถใช้เป็น return value ได้โดยอัตโนมัติ นอกจากนี้สามารถใช้ return เมื่อต้องการคืนค่าออกจาก Function โดยตรงได้เช่นกัน`
 
 ### 9.3 Type System
 
