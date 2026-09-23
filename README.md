@@ -60,27 +60,27 @@ Rust เป็นภาษาแบบ Statically Typed หมายความ
 ### 9.5 Abstraction / Other PPL Concepts
 
 `[อธิบาย abstraction, scope, binding, paradigm หรือแนวคิด PPL อื่นที่เกี่ยวข้อง]`
-`Abstraction`
-Function เป็น Procedural Abstraction คือการรวมขั้นตอนการทำงานไว้ภายใต้ชื่อเดียว ผู้เรียกสนใจเพียงว่า Function รับอะไรเข้าไป และคืนอะไรออกมา โดยไม่จำเป็นต้องรู้รายละเอียดภายในทุกขั้นตอน
-`Scope`
-Rust ใช้ Lexical Scope หรือ Static Scope กล่าวคือ scope ของตัวแปรพิจารณาได้จากโครงสร้างของ source code
-`Binding`
-เมื่อมีการเรียก Function ค่า arguments จะถูกผูก (bind) เข้ากับ parameters ของ Function เพื่อให้สามารถนำค่าเหล่านั้นไปใช้งานภายใน Function ได้
-`Paradigm`
-Rust เป็นภาษาแบบ Multi-paradigm ซึ่งรองรับแนวทางการเขียนโปรแกรมหลายรูปแบบ เช่น Imperative Programming และ Functional Programming ในส่วนของ Functions นั้น Rust รองรับแนวคิดแบบ Functional เช่น การใช้ Function เพื่อรับและคืนค่า รวมถึง Closures และ Higher-order Functions ทำให้สามารถเลือกแนวทางการเขียนโปรแกรมให้เหมาะสมกับงานได้
-`Other : Ownership & Borrowing`
-การเรียกใช้ Function ใน Rust มีความเกี่ยวข้องกับระบบ Ownership ของภาษา โดยเมื่อส่งค่าเข้าไปใน Function ค่านั้นอาจถูก ย้ายความเป็นเจ้าของ (Move), คัดลอก (Copy) หรือ ยืมไปใช้ (Borrow) ขึ้นอยู่กับชนิดข้อมูลและวิธีการส่งค่า ซึ่งกลไกเหล่านี้ช่วยให้ Rust สามารถจัดการหน่วยความจำได้อย่างปลอดภัย (Memory Safety) โดยไม่จำเป็นต้องใช้ Garbage Collector.
+#### Abstraction
+Function เป็น **Procedural Abstraction** คือการรวมขั้นตอนการทำงานไว้ภายใต้ชื่อเดียว ผู้เรียกสนใจเพียงว่า Function รับอะไรเข้าไป และคืนอะไรออกมา โดยไม่จำเป็นต้องรู้รายละเอียดภายในทุกขั้นตอน
+#### Scope
+Rust ใช้ **Lexical Scope หรือ Static Scope** กล่าวคือ scope ของตัวแปรพิจารณาได้จากโครงสร้างของ source code
+#### Binding
+เมื่อมีการเรียก Function ค่า **arguments** จะถูกผูก (bind) เข้ากับ **parameters** ของ Function เพื่อให้สามารถนำค่าเหล่านั้นไปใช้งานภายใน Function ได้
+#### Paradigm
+Rust เป็นภาษาแบบ **Multi-paradigm** ซึ่งรองรับแนวทางการเขียนโปรแกรมหลายรูปแบบ เช่น Imperative Programming และ Functional Programming ในส่วนของ Functions นั้น Rust รองรับแนวคิดแบบ Functional เช่น การใช้ Function เพื่อรับและคืนค่า รวมถึง Closures และ Higher-order Functions ทำให้สามารถเลือกแนวทางการเขียนโปรแกรมให้เหมาะสมกับงานได้
+#### Other : Ownership & Borrowing
+การเรียกใช้ Function ใน Rust มีความเกี่ยวข้องกับระบบ **Ownership** ของภาษา โดยเมื่อส่งค่าเข้าไปใน Function ค่านั้นอาจถูก ย้ายความเป็นเจ้าของ (Move), คัดลอก (Copy) หรือ ยืมไปใช้ (Borrow) ขึ้นอยู่กับชนิดข้อมูลและวิธีการส่งค่า ซึ่งกลไกเหล่านี้ช่วยให้ Rust สามารถจัดการหน่วยความจำได้อย่างปลอดภัย (Memory Safety) โดยไม่จำเป็นต้องใช้ Garbage Collector.
 
 ### 9.6 Why Rust?
 
 `[Rust ใช้แนวคิดนี้เพื่อเพิ่ม safety, reliability หรือ performance อย่างไร]`
-Rust ออกแบบ Functions ให้ทำงานร่วมกับ Type System และ Ownership & Borrowing เพื่อเพิ่มความปลอดภัย ความน่าเชื่อถือ และประสิทธิภาพของโปรแกรม
-`Safety`
-Rust ตรวจสอบชนิดข้อมูลของ parameters และ return values ตั้งแต่ Compile Time รวมถึงตรวจสอบกฎ Ownership และ Borrowing เมื่อมีการส่งข้อมูลระหว่าง Functions จึงช่วยป้องกันข้อผิดพลาดด้านชนิดข้อมูลและปัญหาการจัดการหน่วยความจำ
-`Reliability`
-กฎที่ชัดเจนเกี่ยวกับ Scope, Type และ Ownership ช่วยให้พฤติกรรมของ Function คาดเดาได้มากขึ้น และตรวจพบข้อผิดพลาดหลายประเภทก่อนโปรแกรมทำงานจริง
-`Performance`
-Rust สามารถส่งข้อมูลเข้า Function ได้ทั้งแบบ Move, Copy และ Borrow โดยการ Borrow ผ่าน reference ช่วยให้ Function เข้าถึงข้อมูลได้โดยไม่จำเป็นต้องคัดลอกข้อมูลทั้งหมด และ Rust สามารถจัดการหน่วยความจำได้โดยไม่ต้องพึ่ง Garbage Collector
+Rust ออกแบบ Functions ให้ทำงานร่วมกับ **Type System และ Ownership & Borrowing** เพื่อเพิ่มความปลอดภัย ความน่าเชื่อถือ และประสิทธิภาพของโปรแกรม
+####Safety
+Rust ตรวจสอบชนิดข้อมูลของ **parameters และ return values** ตั้งแต่ Compile Time รวมถึงตรวจสอบกฎ Ownership และ Borrowing เมื่อมีการส่งข้อมูลระหว่าง Functions จึงช่วยป้องกันข้อผิดพลาดด้านชนิดข้อมูลและปัญหาการจัดการหน่วยความจำ
+####Reliability
+กฎที่ชัดเจนเกี่ยวกับ **Scope, Type และ Ownership** ช่วยให้พฤติกรรมของ Function คาดเดาได้มากขึ้น และตรวจพบข้อผิดพลาดหลายประเภทก่อนโปรแกรมทำงานจริง
+**Performance**
+Rust สามารถส่งข้อมูลเข้า Function ได้ทั้งแบบ **Move, Copy และ Borrow** โดยการ Borrow ผ่าน reference ช่วยให้ Function เข้าถึงข้อมูลได้โดยไม่จำเป็นต้องคัดลอกข้อมูลทั้งหมด และ Rust สามารถจัดการหน่วยความจำได้โดยไม่ต้องพึ่ง Garbage Collector
 
 ---
 
