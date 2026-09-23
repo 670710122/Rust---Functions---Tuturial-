@@ -51,11 +51,12 @@ Expression สุดท้ายจะเป็นค่าที่ Function �
 ### 9.3 Type System
 
 `[เกี่ยวข้องกับ type system อย่างไร ถ้ามี]`
+Rust เป็นภาษาแบบ Statically Typed หมายความว่า ชนิดข้อมูลของ parameters และ return value ของ function จะถูกตรวจสอบตอน Compile ก่อนโปรแกรมทำงาน โดยชนิดของ arguments ที่ส่งเข้า function และค่าที่ function คืนกลับต้องสอดคล้องกับชนิดที่ประกาศไว้ หากชนิดข้อมูลไม่ตรงกันจะเกิด Compile-time Error
 
 ### 9.4 Memory / Resource Management
 
 `[เกี่ยวข้องกับ memory หรือ resource management อย่างไร ถ้ามี]`
-Rust เป็นภาษาแบบ Statically Typed หมายความว่า ชนิดข้อมูลของ parameters และ return value ของ function จะถูกตรวจสอบตอน Compile ก่อนโปรแกรมทำงาน โดยชนิดของ arguments ที่ส่งเข้า function และค่าที่ function คืนกลับต้องสอดคล้องกับชนิดที่ประกาศไว้ หากชนิดข้อมูลไม่ตรงกันจะเกิด Compile-time Error
+Rust จัดการ Memory และ Resources ของ Function ผ่านระบบ Ownership และ Borrowing เมื่อส่งข้อมูลเข้า Function ค่าอาจถูก Move, Copy หรือ Borrow ขึ้นอยู่กับชนิดข้อมูลและวิธีการส่งค่า เมื่อเจ้าของข้อมูลออกจาก Scope Rust จะทำลายข้อมูลและคืน Resource โดยอัตโนมัติ แนวคิดนี้ช่วยลดปัญหาเกี่ยวกับหน่วยความจำ เช่น dangling references และช่วยให้จัดการหน่วยความจำได้อย่างปลอดภัยโดยไม่ต้องใช้ Garbage Collector
 
 ### 9.5 Abstraction / Other PPL Concepts
 
@@ -79,7 +80,7 @@ Rust ออกแบบ Functions ให้ทำงานร่วมกับ 
 Rust ตรวจสอบชนิดข้อมูลของ **parameters และ return values** ตั้งแต่ Compile Time รวมถึงตรวจสอบกฎ Ownership และ Borrowing เมื่อมีการส่งข้อมูลระหว่าง Functions จึงช่วยป้องกันข้อผิดพลาดด้านชนิดข้อมูลและปัญหาการจัดการหน่วยความจำ
 #### Reliability
 กฎที่ชัดเจนเกี่ยวกับ **Scope, Type และ Ownership** ช่วยให้พฤติกรรมของ Function คาดเดาได้มากขึ้น และตรวจพบข้อผิดพลาดหลายประเภทก่อนโปรแกรมทำงานจริง
-**Performance**
+#### Performance
 Rust สามารถส่งข้อมูลเข้า Function ได้ทั้งแบบ **Move, Copy และ Borrow** โดยการ Borrow ผ่าน reference ช่วยให้ Function เข้าถึงข้อมูลได้โดยไม่จำเป็นต้องคัดลอกข้อมูลทั้งหมด และ Rust สามารถจัดการหน่วยความจำได้โดยไม่ต้องพึ่ง Garbage Collector
 
 ---
