@@ -91,7 +91,7 @@ Rust สามารถส่งข้อมูลเข้า Function ได�
 
 | Aspect | Rust | Other Language |
 |---|---|---|
-| Syntax | `ใช้ { } กำหนด block และมักใช้ ; ปิดท้าย statement` | `ใช้ indentation กำหนด block ไม่ใช้ { } และไม่จำเป็นต้องใช้ ; การประกาศตัวแปรทำได้โดยกำหนดค่าโดยตรง` |
+| Syntax | `ใช้ { } กำหนด block และมักใช้ ; ปิดท้าย statement ประกาศตัวแปรด้วย let` | `ใช้ indentation กำหนด block ไม่ใช้ { } และไม่จำเป็นต้องใช้ ; การประกาศตัวแปรทำได้โดยกำหนดค่าโดยตรง` |
 | Semantics / Behavior | `ตรวจสอบข้อผิดพลาดตั้งแต่ Compile Time` | `ตรวจสอบข้อผิดพลาดขณะ Runtime` |
 | Type System | `Statically Typed และ Strongly Typed` | `Dynamically Typed และ Strongly Typed` |
 | Memory Management | `Ownership, Borrowing, Lifetimes และไม่ใช้ Garbage Collector` | `Automatic Memory Management โดยหลักผ่าน Reference Counting ร่วมกับ Garbage Collector` |
@@ -129,8 +129,103 @@ Rust สามารถส่งข้อมูลเข้า Function ได�
 ### Analysis
 
 `[อธิบายความแตกต่างที่สำคัญ และเหตุผลด้านการออกแบบภาษา]`
-Rust และ Python มีแนวคิดการออกแบบที่แตกต่างกัน โดย Rust เน้นความปลอดภัยและประสิทธิภาพ ด้วย Static Typing และระบบ Ownership ที่ตรวจสอบตั้งแต่ Compile Time จึงช่วยลดข้อผิดพลาดด้าน Memory ได้โดยไม่ต้องใช้ Garbage Collector
+Rust เน้นความปลอดภัยและประสิทธิภาพ ด้วย Static Typing และระบบ Ownership ที่ตรวจสอบตั้งแต่ Compile Time จึงช่วยลดข้อผิดพลาดด้าน Memory ได้โดยไม่ต้องใช้ Garbage Collector ส่วน Python เน้นความเรียบง่ายและยืดหยุ่น ด้วย Dynamic Typing และ Automatic Memory Management ทำให้เขียนและพัฒนาโปรแกรมได้ง่ายกว่า แต่ข้อผิดพลาดบางอย่างอาจตรวจพบเมื่อ Runtime
 
-ส่วน Python เน้นความเรียบง่ายและยืดหยุ่น ด้วย Dynamic Typing และ Automatic Memory Management ทำให้เขียนและพัฒนาโปรแกรมได้ง่ายกว่า แต่ข้อผิดพลาดบางอย่างอาจตรวจพบเมื่อ Runtime
 ---
 
+**Comparison Language:** `Java`
+
+| Aspect | Rust | Other Language |
+|---|---|---|
+| Syntax | `ใช้ { } กำหนด block และ ; ปิดท้าย statement ประกาศตัวแปรด้วย let` | `ใช้ { } กำหนด block และ ; ปิดท้าย statement โดยทั่วไปต้องระบุชนิดข้อมูล` |
+| Semantics / Behavior | `ตรวจสอบข้อผิดพลาดตั้งแต่ Compile Time` | `Compile เป็น Bytecode และโดยทั่วไปทำงานผ่าน JVM` |
+| Type System | `Statically Typed และ Strongly Typed` | `Statically Typed และ Strongly Typed และรองรับ Type Inference ใน local variables ด้วย var` |
+| Memory Management | `Ownership, Borrowing, Lifetimes และไม่ใช้ Garbage Collector` | `ใช้ Garbage Collector (GC) จัดการ Memory ของ Object ที่ไม่ถูกใช้งานโดยอัตโนมัติ` |
+| Safety | `Memory Safety และ Thread Safety โดย compiler ตรวจสอบ ownership, borrowing และ lifetime ช่วยป้องกันปัญหา` | `JVM และ GC ช่วยลดปัญหาการจัดการ Memory โดยตรง แต่ยังสามารถเกิดข้อผิดพลาดขณะ Runtime` |
+
+### Rust Example
+
+```rust
+  fn main() {
+    let name = String::from("Rust");
+    print_name(&name);
+    println!("{}", name);
+  }
+
+  fn print_name(name: &String) {
+    println!("{}", name);
+  }
+```
+
+### `[Other Language]` Example
+
+```java
+  public class Main {
+      static void printName(String name) {
+        System.out.println(name);
+      }
+
+      public static void main(String[] args) {
+        String name = "Java"; printName(name);
+        System.out.println(name);
+      }
+  }
+```
+
+### Analysis
+
+`[อธิบายความแตกต่างที่สำคัญ และเหตุผลด้านการออกแบบภาษา]`
+Rust และ Java เป็นภาษาแบบ Statically Typed เหมือนกัน แต่แตกต่างกันชัดเจนด้านการจัดการ Memory
+Rust ใช้ Ownership และ Borrowing เพื่อตรวจสอบและจัดการ Memory ตั้งแต่ Compile Time โดยไม่ใช้ Garbage Collector ส่วน Java ใช้ Garbage Collector จัดการ Memory ขณะ Runtime
+
+---
+
+**Comparison Language:** `C++`
+
+| Aspect | Rust | Other Language |
+|---|---|---|
+| Syntax | `ใช้ { } กำหนด block และ ; ปิดท้าย statement ประกาศตัวแปรด้วย let` | `ใช้ { } กำหนด block และ ; ปิดท้าย statement ระบุชนิดข้อมูลตอนประกาศ` |
+| Semantics / Behavior | `ตรวจสอบข้อผิดพลาดตั้งแต่ Compile Time` | `Programmer ต้องระมัดระวังข้อผิดพลาดเกี่ยวกับ Memory ด้วยตนเอง` |
+| Type System | `Statically Typed และ Strongly Typed` | `Statically Typed และรองรับ Type Inference ผ่าน auto` |
+| Memory Management | `Ownership, Borrowing, Lifetimes และไม่ใช้ Garbage Collector` | `รองรับทั้ง Automatic Storage, RAII, Smart Pointers และการจัดการ Dynamic Memory โดยตรง` |
+| Safety | `Memory Safety และ Thread Safety โดย compiler ตรวจสอบ ownership, borrowing และ lifetime ช่วยป้องกันปัญหา` | `มีความยืดหยุ่นสูง แต่การใช้ Raw Pointer หรือจัดการ Memory ไม่ถูกต้องอาจทำให้เกิด Dangling Pointer, Use-after-free หรือ Memory Leak ได้` |
+
+### Rust Example
+
+```rust
+  fn main() {
+    let name = String::from("Rust");
+    print_name(&name);
+    println!("{}", name);
+  }
+
+  fn print_name(name: &String) {
+    println!("{}", name);
+  }
+```
+
+### `[Other Language]` Example
+
+```c++
+  #include <iostream>
+  #include <string>
+  using namespace std;
+
+  void printName(const string& name) {
+    cout << name << endl;
+  }
+
+  int main() {
+    string name = "C++";
+    printName(name); cout << name << endl;
+    return 0;
+  }
+```
+
+### Analysis
+
+`[อธิบายความแตกต่างที่สำคัญ และเหตุผลด้านการออกแบบภาษา]`
+Rust และ C++ เป็นภาษาที่เน้น ประสิทธิภาพและการควบคุมทรัพยากร เช่นเดียวกัน แต่มีแนวทางด้าน Memory Safety แตกต่างกัน
+Rust ใช้ Ownership, Borrowing และ Lifetime ให้ Compiler ตรวจสอบความปลอดภัยของ Memory ตั้งแต่ Compile Time ส่วน C++ ให้อิสระแก่ Programmer ในการจัดการ Memory และ Pointer มากกว่า จึงมีความยืดหยุ่นสูง แต่ต้องระมัดระวังข้อผิดพลาดด้าน Memory มากกว่า
+
+---
