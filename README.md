@@ -91,27 +91,46 @@ Rust สามารถส่งข้อมูลเข้า Function ได�
 
 | Aspect | Rust | Other Language |
 |---|---|---|
-| Syntax | `ใช้ { } กำหนด block และมักใช้ ; ปิดท้าย statement มีการประกาศตัวแปรด้วย let และสามารถระบุชนิดข้อมูลได้ เช่น let x: i32 = 10;` | `ใช้ indentation กำหนด block ไม่ใช้ { } และไม่จำเป็นต้องใช้ ; การประกาศตัวแปรทำได้โดยกำหนดค่าโดยตรง เช่น x = 10` |
-| Semantics / Behavior | `เน้นการตรวจสอบข้อผิดพลาดตั้งแต่ Compile Time เช่น type mismatch, ownership และ borrowing ทำให้ข้อผิดพลาดหลายประเภทถูกตรวจพบก่อนโปรแกรมทำงาน` | `หลายอย่างถูกตรวจสอบขณะ Runtime เนื่องจาก Python เป็นภาษาแบบ Dynamic ทำให้เขียนโปรแกรมได้ยืดหยุ่นกว่า แต่ข้อผิดพลาดบางประเภทจะพบเมื่อโปรแกรมทำงานถึงส่วนนั้น` |
-| Type System | `Statically Typed และ Strongly Typed ชนิดข้อมูลถูกกำหนดและตรวจสอบตอน Compile Time แต่มี Type Inference ทำให้ไม่จำเป็นต้องระบุ type ทุกครั้ง` | `Dynamically Typed และ Strongly Typed ชนิดของค่าถูกตรวจสอบขณะ Runtime และตัวแปรสามารถอ้างถึงค่าคนละชนิดได้ในช่วงเวลาต่างกัน` |
-| Memory Management | `Ownership, Borrowing และ Lifetimes ในการควบคุม memory/resource โดยไม่ใช้ Garbage Collector` | `Automatic Memory Management โดยหลักผ่าน Reference Counting ร่วมกับ Garbage Collector` |
-| Safety | `เน้น Memory Safety และ Thread Safety โดย compiler ตรวจสอบ ownership, borrowing และ lifetime ช่วยป้องกันปัญหา เช่น dangling references และ data races หลายกรณีก่อน Runtime` | `ปลอดภัยจากการจัดการ raw memory โดยตรงในโค้ด Python ทั่วไป แต่ไม่มีระบบ Ownership/Borrowing แบบ Rust และข้อผิดพลาดด้าน type หรือ state หลายอย่างยังสามารถเกิดขึ้นใน Runtime ได้` |
+| Syntax | `ใช้ { } กำหนด block และมักใช้ ; ปิดท้าย statement` | `ใช้ indentation กำหนด block ไม่ใช้ { } และไม่จำเป็นต้องใช้ ; การประกาศตัวแปรทำได้โดยกำหนดค่าโดยตรง` |
+| Semantics / Behavior | `ตรวจสอบข้อผิดพลาดตั้งแต่ Compile Time` | `ตรวจสอบข้อผิดพลาดขณะ Runtime` |
+| Type System | `Statically Typed และ Strongly Typed` | `Dynamically Typed และ Strongly Typed` |
+| Memory Management | `Ownership, Borrowing, Lifetimes และไม่ใช้ Garbage Collector` | `Automatic Memory Management โดยหลักผ่าน Reference Counting ร่วมกับ Garbage Collector` |
+| Safety | `Memory Safety และ Thread Safety โดย compiler ตรวจสอบ ownership, borrowing และ lifetime ช่วยป้องกันปัญหา` | `จัดการ raw memory โดยตรงในโค้ด Python ทั่วไป` |
 
 ### Rust Example
 
 ```rust
-// Rust code
+  fn main() {
+    let name: String = String::from("Rust");
+    let length: usize = get_length(&name);
+
+    println!("Language: {}", name);
+    println!("Length: {}", length);
+  }
+
+  fn get_length(text: &String) -> usize {
+    text.len()
+  }
 ```
 
 ### `[Other Language]` Example
 
 ```python
-# Other language code
+  def get_length(text):
+    return len(text)
+
+  name = "Python"
+  length = get_length(name)
+
+  print("Language:", name)
+  print("Length:", length)
 ```
 
 ### Analysis
 
 `[อธิบายความแตกต่างที่สำคัญ และเหตุผลด้านการออกแบบภาษา]`
+Rust และ Python มีแนวคิดการออกแบบที่แตกต่างกัน โดย Rust เน้นความปลอดภัยและประสิทธิภาพ ด้วย Static Typing และระบบ Ownership ที่ตรวจสอบตั้งแต่ Compile Time จึงช่วยลดข้อผิดพลาดด้าน Memory ได้โดยไม่ต้องใช้ Garbage Collector
 
+ส่วน Python เน้นความเรียบง่ายและยืดหยุ่น ด้วย Dynamic Typing และ Automatic Memory Management ทำให้เขียนและพัฒนาโปรแกรมได้ง่ายกว่า แต่ข้อผิดพลาดบางอย่างอาจตรวจพบเมื่อ Runtime
 ---
 
