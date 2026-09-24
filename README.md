@@ -87,15 +87,15 @@ Rust สามารถส่งข้อมูลเข้า Function ได�
 
 ## 10. Rust vs. Other Language
 
-**Comparison Language:** `[Python / C / C++ / Java / Kotlin / ...]`
+**Comparison Language:** `Python`
 
 | Aspect | Rust | Other Language |
 |---|---|---|
-| Syntax | `[อธิบาย]` | `[อธิบาย]` |
-| Semantics / Behavior | `[อธิบาย]` | `[อธิบาย]` |
-| Type System | `[อธิบาย]` | `[อธิบาย]` |
-| Memory Management | `[อธิบาย]` | `[อธิบาย]` |
-| Safety | `[อธิบาย]` | `[อธิบาย]` |
+| Syntax | `ใช้ { } กำหนด block และมักใช้ ; ปิดท้าย statement มีการประกาศตัวแปรด้วย let และสามารถระบุชนิดข้อมูลได้ เช่น let x: i32 = 10;` | `ใช้ indentation กำหนด block ไม่ใช้ { } และไม่จำเป็นต้องใช้ ; การประกาศตัวแปรทำได้โดยกำหนดค่าโดยตรง เช่น x = 10` |
+| Semantics / Behavior | `เน้นการตรวจสอบข้อผิดพลาดตั้งแต่ Compile Time เช่น type mismatch, ownership และ borrowing ทำให้ข้อผิดพลาดหลายประเภทถูกตรวจพบก่อนโปรแกรมทำงาน` | `หลายอย่างถูกตรวจสอบขณะ Runtime เนื่องจาก Python เป็นภาษาแบบ Dynamic ทำให้เขียนโปรแกรมได้ยืดหยุ่นกว่า แต่ข้อผิดพลาดบางประเภทจะพบเมื่อโปรแกรมทำงานถึงส่วนนั้น` |
+| Type System | `Statically Typed และ Strongly Typed ชนิดข้อมูลถูกกำหนดและตรวจสอบตอน Compile Time แต่มี Type Inference ทำให้ไม่จำเป็นต้องระบุ type ทุกครั้ง` | `Dynamically Typed และ Strongly Typed ชนิดของค่าถูกตรวจสอบขณะ Runtime และตัวแปรสามารถอ้างถึงค่าคนละชนิดได้ในช่วงเวลาต่างกัน` |
+| Memory Management | `Ownership, Borrowing และ Lifetimes ในการควบคุม memory/resource โดยไม่ใช้ Garbage Collector` | `Automatic Memory Management โดยหลักผ่าน Reference Counting ร่วมกับ Garbage Collector` |
+| Safety | `เน้น Memory Safety และ Thread Safety โดย compiler ตรวจสอบ ownership, borrowing และ lifetime ช่วยป้องกันปัญหา เช่น dangling references และ data races หลายกรณีก่อน Runtime` | `ปลอดภัยจากการจัดการ raw memory โดยตรงในโค้ด Python ทั่วไป แต่ไม่มีระบบ Ownership/Borrowing แบบ Rust และข้อผิดพลาดด้าน type หรือ state หลายอย่างยังสามารถเกิดขึ้นใน Runtime ได้` |
 
 ### Rust Example
 
