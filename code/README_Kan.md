@@ -6,7 +6,7 @@
 
 **Problem**
 
-บางครั้งอาจเกิดการสับสนในการใช้ และคิดว่าภาษา rust สามารถทำ `Function Overloading` ได้ (การสร้างฟังก์ชันชื่อเดียวกัน แต่รับ Parameter หรือมี Type ต่างกัน)  แต่ในความจริงเป็นแล้ว rust ไม่รองรับการทำ Function Overloading โดยตรง
+บางครั้งอาจเกิดการสับสนในการเขียน และคิดว่าภาษา rust สามารถทำ `Function Overloading` ได้ (การสร้างฟังก์ชันชื่อเดียวกัน แต่รับ Parameter หรือมี Type ต่างกัน)  แต่ในความเป็นจริงแล้ว rust ไม่รองรับการทำ Function Overloading โดยตรง
 
 **Incorrect Code**
 
