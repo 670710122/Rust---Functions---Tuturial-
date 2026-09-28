@@ -11,10 +11,10 @@
 
 | # | Name | Student ID | GitHub Username | Main Responsibility |
 |---|---|---|---|---|
-| 1 | `[ชื่อ-นามสกุล]` | `[รหัส]` | `@[username]` | Concept + Code |
-| 2 | `[ชื่อ-นามสกุล]` | `[รหัส]` | `@[username]` | Code + Demo |
-| 3 | `[กัญญรัชต์ สมหวังพรเจริญ]` | `[670710122]` | `@[670710122]` | Rust vs Other Language + PPL |
-| 4 | `[ชื่อ-นามสกุล]` | `[รหัส]` | `@[username]` | Exercises + Common Mistakes |
+| 1 | `จักรพรรดิ โพธิพิภัทรกุล` | `670710976` | `@[username]` | Concept + Code |
+| 2 | `กฤตเมธ ไทยภักดี` | `670710121` | `@670710121` | Code + Demo |
+| 3 | `กัญญรัชต์ สมหวังพรเจริญ` | `670710122` | `@670710122` | Rust vs Other Language + PPL |
+| 4 | `กัญญาณัฐ เชมนรากร` | `670710123` | `@670710123` | Exercises + Common Mistakes |
 
 ---
 
