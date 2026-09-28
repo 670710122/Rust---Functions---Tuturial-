@@ -2,13 +2,10 @@
 
 ## 9. PPL Perspective
 
-> **ส่วนนี้เป็นหัวใจของรายวิชา Principles of Programming Languages**
-
 วิเคราะห์ Topic นี้ในมุมมองของ Programming Languages
 
 ### 9.1 Syntax
 
-`[Topic นี้เกี่ยวข้องกับ syntax อย่างไร]`
 ภาษา Rust ประกาศฟังก์ชันด้วย keyword fn ตามด้วยชื่อฟังก์ชัน วงเล็บสำหรับ parameters และ { } สำหรับส่วน body ของฟังก์ชัน
   1) Function พื้นฐาน
      ```rust
@@ -31,7 +28,6 @@
      ```
 ### 9.2 Semantics
 
-`[คำสั่ง/construct เหล่านี้มีความหมายหรือพฤติกรรมอย่างไร]`
 `เมื่อมีการเรียก Function ค่า arguments จะถูกผูกกับ parameters จากนั้นคำสั่งและ expressions ภายใน function body จะถูกประมวลผล และค่าของ expression สุดท้ายที่ไม่มี semicolon (;) สามารถใช้เป็น return value ได้โดยอัตโนมัติ นอกจากนี้สามารถใช้ return เมื่อต้องการคืนค่าออกจาก Function โดยตรงได้เช่นกัน`
 ตัวอย่างที่ไม่ได้ใส่ semicolon (;)
 ```rust
@@ -50,17 +46,14 @@ Expression สุดท้ายจะเป็นค่าที่ Function �
 ผลลัพธ์ของ expression จะไม่ถูกใช้เป็นค่าที่ Function คืน ทำให้ body มีค่าเป็น () และเกิด error หาก Function กำหนดว่าต้องคืน i32
 ### 9.3 Type System
 
-`[เกี่ยวข้องกับ type system อย่างไร ถ้ามี]`
 Rust เป็นภาษาแบบ Statically Typed หมายความว่า ชนิดข้อมูลของ parameters และ return value ของ function จะถูกตรวจสอบตอน Compile ก่อนโปรแกรมทำงาน โดยชนิดของ arguments ที่ส่งเข้า function และค่าที่ function คืนกลับต้องสอดคล้องกับชนิดที่ประกาศไว้ หากชนิดข้อมูลไม่ตรงกันจะเกิด Compile-time Error
 
 ### 9.4 Memory / Resource Management
 
-`[เกี่ยวข้องกับ memory หรือ resource management อย่างไร ถ้ามี]`
 Rust ผ่านระบบ Ownership และ Borrowing เมื่อส่งข้อมูลเข้า Function ค่าอาจถูก Move, Copy หรือ Borrow ขึ้นอยู่กับชนิดข้อมูลและวิธีการส่งค่า เมื่อเจ้าของข้อมูลออกจาก Scope Rust จะทำลายข้อมูลและคืน Resource โดยอัตโนมัติ ซึ่งช่วยลดปัญหาเกี่ยวกับหน่วยความจำ เช่น dangling references และช่วยให้จัดการหน่วยความจำได้อย่างปลอดภัยโดยไม่ต้องใช้ Garbage Collector
 
 ### 9.5 Abstraction / Other PPL Concepts
 
-`[อธิบาย abstraction, scope, binding, paradigm หรือแนวคิด PPL อื่นที่เกี่ยวข้อง]`
 #### Abstraction
 Function เป็น **Procedural Abstraction** (การรวมขั้นตอนการทำงานไว้ภายใต้ชื่อเดียว) ผู้เรียกสนใจเพียงว่า Function รับอะไรเข้าไป และคืนอะไรออกมา โดยไม่จำเป็นต้องรู้รายละเอียดภายในทุกขั้นตอน
 #### Scope
@@ -74,7 +67,6 @@ Rust เป็นภาษาแบบ **Multi-paradigm** ซึ่งรอง�
 
 ### 9.6 Why Rust?
 
-`[Rust ใช้แนวคิดนี้เพื่อเพิ่ม safety, reliability หรือ performance อย่างไร]`
 Rust ออกแบบ Functions ให้ทำงานร่วมกับ **Type System และ Ownership & Borrowing** เพื่อเพิ่มความปลอดภัย ความน่าเชื่อถือ และประสิทธิภาพของโปรแกรม
 #### Safety
 Rust ตรวจสอบชนิดข้อมูลของ **parameters และ return values** ตั้งแต่ Compile Time รวมถึงตรวจสอบกฎ Ownership และ Borrowing เมื่อมีการส่งข้อมูลระหว่าง Functions จึงช่วยป้องกันข้อผิดพลาดด้านชนิดข้อมูลและปัญหาการจัดการหน่วยความจำ
@@ -128,7 +120,6 @@ Rust สามารถส่งข้อมูลเข้า Function ได�
 
 ### Analysis
 
-`[อธิบายความแตกต่างที่สำคัญ และเหตุผลด้านการออกแบบภาษา]`
 Rust เน้นความปลอดภัยและประสิทธิภาพ ด้วย Static Typing และระบบ Ownership ที่ตรวจสอบตั้งแต่ Compile Time จึงช่วยลดข้อผิดพลาดด้าน Memory ได้โดยไม่ต้องใช้ Garbage Collector ส่วน Python เน้นความเรียบง่ายและยืดหยุ่น ด้วย Dynamic Typing และ Automatic Memory Management ทำให้เขียนและพัฒนาโปรแกรมได้ง่ายกว่า แต่ข้อผิดพลาดบางอย่างอาจตรวจพบเมื่อ Runtime
 
 ---
@@ -174,7 +165,6 @@ Rust เน้นความปลอดภัยและประสิทธ
 
 ### Analysis
 
-`[อธิบายความแตกต่างที่สำคัญ และเหตุผลด้านการออกแบบภาษา]`
 Rust และ Java เป็นภาษาแบบ Statically Typed เหมือนกัน แต่แตกต่างกันชัดเจนด้านการจัดการ Memory
 Rust ใช้ Ownership และ Borrowing เพื่อตรวจสอบและจัดการ Memory ตั้งแต่ Compile Time โดยไม่ใช้ Garbage Collector ส่วน Java ใช้ Garbage Collector จัดการ Memory ขณะ Runtime
 
@@ -224,7 +214,6 @@ Rust ใช้ Ownership และ Borrowing เพื่อตรวจสอ�
 
 ### Analysis
 
-`[อธิบายความแตกต่างที่สำคัญ และเหตุผลด้านการออกแบบภาษา]`
 Rust และ C++ เป็นภาษาที่เน้น ประสิทธิภาพและการควบคุมทรัพยากร เช่นเดียวกัน แต่มีแนวทางด้าน Memory Safety แตกต่างกัน
 Rust ใช้ Ownership, Borrowing และ Lifetime ให้ Compiler ตรวจสอบความปลอดภัยของ Memory ตั้งแต่ Compile Time ส่วน C++ ให้อิสระแก่ Programmer ในการจัดการ Memory และ Pointer มากกว่า จึงมีความยืดหยุ่นสูง แต่ต้องระมัดระวังข้อผิดพลาดด้าน Memory มากกว่า
 
