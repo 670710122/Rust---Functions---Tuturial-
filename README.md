@@ -20,7 +20,7 @@
       }
   ```
     ((function parameter ของ Rust เป็นส่วนหนึ่งของ static type system = รู้ตั้งแต่ compile))
-  4) Function ที่มี Return Value
+  3) Function ที่มี Return Value
      ```rust
      fn function_name() -> ReturnType {
         value
