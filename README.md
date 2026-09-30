@@ -61,8 +61,8 @@ Rust ใช้ **Lexical Scope หรือ Static Scope** คือ scope ข�
 #### Binding
 เมื่อมีการเรียก Function ค่า **arguments** จะถูก binding เข้ากับ **parameters** ของ Function เพื่อให้สามารถนำค่าเหล่านั้นไปใช้งานภายใน Function ได้
 #### Paradigm
-Rust เป็นภาษาแบบ **Multi-paradigm** ซึ่งรองรับแนวทางการเขียนโปรแกรมหลายรูปแบบ เช่น Imperative Programming และ Functional Programming ในส่วนของ Functions นั้น Rust รองรับแนวคิดแบบ Functional เช่น การใช้ Function เพื่อรับและคืนค่า รวมถึง Closures และ Higher-order Functions ทำให้สามารถเลือกแนวทางการเขียนโปรแกรมให้เหมาะสมกับงานได้
-#### Other : Ownership & Borrowing
+Rust เป็นภาษาแบบ Multi-paradigm รองรับทั้ง Imperative, Functional และ Object-oriented บางส่วน (ผ่าน struct, impl, trait) ในส่วนของ Functions นั้น Rust ถือว่า Function เป็น first-class value คือเก็บในตัวแปร ส่งเป็น argument และคืนเป็น return value ได้ รองรับ Closures ที่จับตัวแปรจากบริบทรอบข้างได้ และ Higher-order Functions เช่น map และ filter อย่างไรก็ตาม Rust ไม่ใช่ภาษา Functional แบบ pure เพราะ Function มี side effect ได้
+#### Ownership & Borrowing
 การเรียกใช้ Function ใน Rust มีความเกี่ยวข้องกับระบบ **Ownership** ของภาษา โดยเมื่อส่งค่าเข้าไปใน Function ค่านั้นอาจถูก ย้ายความเป็นเจ้าของ (Move), คัดลอก (Copy) หรือ ยืมไปใช้ (Borrow) ขึ้นอยู่กับชนิดข้อมูลและวิธีการส่งค่า โดยไม่จำเป็นต้องใช้ Garbage Collector.
 
 ### 9.6 Why Rust?
