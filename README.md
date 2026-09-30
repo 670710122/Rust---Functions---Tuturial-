@@ -85,3 +85,27 @@ fn panic_error() -> ! {
     panic!("Crash program!");
 }
 ```
+
+---
+
+## 5. Important Syntax / Rules
+
+| Syntax / Rule | Meaning | Example |
+|---|---|---|
+| `fn name(param: Type) -> ReturnType` | `การประกาศฟังก์ชัน กำหนดชื่อ พารามิเตอร์พร้อม Type และชนิดข้อมูลที่ต้องคืนค่า` | `fn add(a: i32, b: i32) -> i32` |
+| `บรรทัดสุดท้าย ไม่มี เซมิโคลอน (;)` | `ใช้เป็น Expression เพื่อคืนค่าอัตโนมัติ (Implicit Return) โดยไม่ต้องใช้คำสั่ง return` | `fn square(x: i32) -> i32 { x * x }` |
+| `Return Type เป็นเครื่องหมายตกใจ -> !` | `Diverging Function ฟังก์ชันที่ไม่เคยคืนค่าปกติกลับมา (เช่น Panic หรือ Infinite Loop)` | `fn fail() -> ! { panic!("Error"); }` |
+| `&mut T` | `Mutable Reference: การส่ง Reference เข้าฟังก์ชันเพื่อให้ฟังก์ชันสามารถแก้ไขค่าของตัวแปรต้นฉบับได้` | `fn update(s: &mut String) { s.push_str("!"); }` |
+| `pub fn / pub(crate) fn` | `Visibility (การมองเห็น): กำหนดสิทธิ์การเข้าถึงฟังก์ชันจากภายนอกโมดูลหรือ crate` | `pub fn calculate() {}` |
+| `dyn Trait / impl Trait` | `Generics & Traits: การสร้างฟังก์ชันที่รับหรือคืนค่าได้หลาย Type แบบ Polymorphism` | `fn print_item<T: Display>(item: T) {}` |
+| `Closures (\|params\| body)` | `Anonymous Functions: ฟังก์ชันไม่มีชื่อที่สามารถจับตัวแปรจาก Environment รอบข้างได้` | `let add = \|a, b\| a + b;` |
+
+### Important Rules
+
+1. `Type Annotation is Mandatory: พารามิเตอร์ทุกตัวของฟังก์ชันในภาษา Rust ต้องระบุ Data Type เสมอ (คอมไพเลอร์จะไม่ช่วยเดา Type ให้เหมือนกับตัวแปรทั่วไปที่ใช้ let)`
+2. `Statement vs Expression: ห้ามใส่เซมิโคลอน (;) ที่บรรทัดสุดท้ายของฟังก์ชันหากต้องการให้บรรทัดนั้นเป็นค่า Return ถ้าใส่จะกลายเป็น Statement และทำให้เกิดคอมไพล์เออร์เออร์เรอร์หากฟังก์ชันนั้นกำหนด Return Type ไว้`
+3. `Ownership Transfer by Default: การส่งค่าตัวแปรประเภทที่ไม่ใช่ Primitive (เช่น String หรือ Vector) เข้าไปในฟังก์ชันแบบปกติจะทำให้เกิดการย้ายสิทธิ์ (Move) และไม่สามารถนำตัวแปรนั้นกลับมาใช้ซ้ำข้างนอกได้ เว้นแต่จะใช้ Reference (&) เพื่อยืมค่าแทน`
+4. `Method vs Function: ฟังก์ชันที่ถูกผูกไว้กับ Struct หรือ Enum (ประกาศภายในบล็อก impl) ซึ่งจะมีพารามิเตอร์ตัวแรกเป็น self, &self, หรือ &mut self`
+5. `Higher-Order Functions: ความสามารถในการรับฟังก์ชันอื่นเป็นพารามิเตอร์ หรือการคืนค่าฟังก์ชันออกจากฟังก์ชัน (มักใช้คู่กับ Closures และ Iterator เช่น .map() หรือ .filter())`
+
+---
