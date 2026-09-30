@@ -56,14 +56,64 @@ Rust ผ่านระบบ Ownership และ Borrowing เมื่อส�
 
 #### Abstraction
 Function เป็น **Procedural Abstraction** (การรวมขั้นตอนการทำงานไว้ภายใต้ชื่อเดียว) ผู้เรียกสนใจเพียงว่า Function รับอะไรเข้าไป และคืนอะไรออกมา โดยไม่จำเป็นต้องรู้รายละเอียดภายในทุกขั้นตอน
+```rust
+    fn average(s: &[f64]) -> f64 {
+      s.iter().sum::<f64>() / s.len() as f64
+    }
+    // เรียกใช้: average(&[80.0, 90.0]) ไม่ต้องรู้ขั้นตอนภายใน
+```
 #### Scope
 Rust ใช้ **Lexical Scope หรือ Static Scope** คือ scope ของตัวแปรพิจารณาได้จากโครงสร้างของ source code
+```rust
+    let x = 10;
+    {
+        let y = 5;              // y อยู่แค่ใน block นี้
+        println!("{}", x + y);
+    }
+    let x = x * 2;              // shadowing
+    let show = || println!("{}", x); // closure เข้าถึง x ได้ (fn ซ้อนทำไม่ได้)
+```
 #### Binding
 เมื่อมีการเรียก Function ค่า **arguments** จะถูก binding เข้ากับ **parameters** ของ Function เพื่อให้สามารถนำค่าเหล่านั้นไปใช้งานภายใน Function ได้
+```rust
+    fn add(a: i32, b: i32) -> i32 { a + b } // a, b = parameters
+    let r = add(3, 4);                      // 3, 4 = arguments ถูกผูกเข้ากับ a, b
+
+    // Static vs Dynamic binding
+    fn f_static<T: Speak>(x: &T) { x.speak() }  // ผูกตอน compile
+    fn f_dyn(x: &dyn Speak) { x.speak() }       // ผูกตอนรันไทม์ (vtable)
+```
 #### Paradigm
 Rust เป็นภาษาแบบ Multi-paradigm รองรับทั้ง Imperative, Functional และ Object-oriented บางส่วน (ผ่าน struct, impl, trait) ในส่วนของ Functions นั้น Rust ถือว่า Function เป็น first-class value คือเก็บในตัวแปร ส่งเป็น argument และคืนเป็น return value ได้ รองรับ Closures ที่จับตัวแปรจากบริบทรอบข้างได้ และ Higher-order Functions เช่น map และ filter อย่างไรก็ตาม Rust ไม่ใช่ภาษา Functional แบบ pure เพราะ Function มี side effect ได้
+```rust
+  // Imperative
+  let mut sum = 0;
+  for i in 1..=5 { sum += i; }
+
+  // Functional: first-class function, closure, higher-order
+  fn make_adder(n: i32) -> impl Fn(i32) -> i32 { move |x| x + n }
+  let add5 = make_adder(5);
+
+  let v: Vec<i32> = (1..=5).filter(|x| x % 2 == 1).map(|x| x * x).collect(); // [1, 9, 25]
+```
 #### Ownership & Borrowing
 การเรียกใช้ Function ใน Rust มีความเกี่ยวข้องกับระบบ **Ownership** ของภาษา โดยเมื่อส่งค่าเข้าไปใน Function ค่านั้นอาจถูก ย้ายความเป็นเจ้าของ (Move), คัดลอก (Copy) หรือ ยืมไปใช้ (Borrow) ขึ้นอยู่กับชนิดข้อมูลและวิธีการส่งค่า โดยไม่จำเป็นต้องใช้ Garbage Collector.
+```rust
+  fn take(s: String) {}
+  fn len(s: &String) -> usize { s.len() }
+  fn append(s: &mut String) { s.push('!') }
+
+  let a = String::from("hi");
+  let n = 5;
+
+  take(a);            // Move: a ใช้ต่อไม่ได้
+  let m = n;          // Copy: n ยังใช้ได้ (i32 เป็น Copy)
+
+  let mut b = String::from("hi");
+  len(&b);            // Borrow แบบอ่านอย่างเดียว
+  append(&mut b);     // Borrow แบบแก้ไขได้
+  // ออกจาก scope แล้ว drop อัตโนมัติ ไม่ต้องมี GC
+```
 
 ### 9.6 Why Rust?
 
