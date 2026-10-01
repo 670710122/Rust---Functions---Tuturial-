@@ -15,16 +15,22 @@
      ```
   2) Function ที่มี Parameters
   ```rust
-      fn function_name(parameter: Type) {
-         // function body
+      // Create a function
+      fn say_hello() {
+        println!("Hello from a function!");
       }
+
+      say_hello(); // Call the function
   ```
     ((function parameter ของ Rust เป็นส่วนหนึ่งของ static type system = รู้ตั้งแต่ compile))
   3) Function ที่มี Return Value
      ```rust
-     fn function_name() -> ReturnType {
-        value
+     fn add(a: i32, b: i32) -> i32 {
+      return a + b;
      }
+
+     let sum = add(3, 4);
+     println!("Sum is: {}", sum);
      ```
 ### 9.2 Semantics
 
