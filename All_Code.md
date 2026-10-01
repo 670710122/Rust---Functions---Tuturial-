@@ -1,3 +1,4 @@
+# All Code in Rust Functions Tuturial
 ## 4. Key Concepts
 
 ### 4.1 `[การประกาศฟังก์ชัน (Function Declaration)]`
