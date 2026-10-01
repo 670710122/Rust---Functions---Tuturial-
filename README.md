@@ -1,4 +1,4 @@
-# All Code in Rust Functions Tuturial
+# Rust Functions Tuturial
 
 ## 9. PPL Perspective
 
